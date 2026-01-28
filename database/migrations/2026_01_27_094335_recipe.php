@@ -10,7 +10,7 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
-    { Schema::create('Recipes' , function(Blueprint $table ){
+    { Schema::create('recipes' , function(Blueprint $table ){
        $table->id(); 
        $table->string('title'); 
        $table->text('description');
