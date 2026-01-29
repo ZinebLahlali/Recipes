@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layout.app')
 
 @section('title', 'All Recipes')
 
@@ -8,11 +8,8 @@
             <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition">
 
                 @if($recipe->image)
-                    <img 
-                        src="{{ asset('storage/' . $recipe->image) }}" 
-                        alt="{{ $recipe->title }}"
-                        class="w-full h-48 object-cover"
-                    >
+                    <img src="{{ asset('storage/'.$recipe->image) }}" alt="{{ $recipe->title }}"
+                        class="w-full h-48 object-cover">
                 @endif
 
                 <div class="p-5">
@@ -24,7 +21,7 @@
                         {{ Str::limit($recipe->description, 120) }}
                     </p>
 
-                    <a href="{{ route('home', $recipe->id) }}"
+                    <a href=""
                        class="inline-block text-sm font-medium text-rose-500 hover:text-rose-600">
                         Read more →
                     </a>

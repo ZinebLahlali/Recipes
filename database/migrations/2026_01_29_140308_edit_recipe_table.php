@@ -10,17 +10,10 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
-    { Schema::create('recipes' , function(Blueprint $table ){
-       $table->id(); 
-       $table->string('title'); 
-       $table->text('description');
-       $table->text('ingredients');
-       $table->text('steps');
-       $table->string('image');
-       $table->string('category');
-       $table->timestamps();
-    });
-        
+    {
+        Schema::table('recipessd', function (Blueprint $table) {
+            //
+        });
     }
 
     /**
@@ -28,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::table('recipessd', function (Blueprint $table) {
+            //
+        });
     }
 };
