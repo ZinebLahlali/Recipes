@@ -16,6 +16,13 @@ class RecipeController extends Controller
        
     }
 
+
+    public function getRecipeDetails($id)
+    {
+        $recipes = Recipe::findOrFail($id);
+        return view('recipes.details',compact('recipes'));
+    }
+
     public function create()
     {
         return view('recipes.create');
@@ -46,10 +53,29 @@ class RecipeController extends Controller
         echo "success";
         exit;
     }
-      
 
+     public function edit($id)
+     { 
+       $recipe = Recipe::findOrFail($id);
+       return view('recipes.edit', compact('recipe')); 
+     }
+     
+     public function update(Request $request, $id)
+     {    $path = null;
+        if($request->hasFile('image')){
+            $path = $request->file('image')->store('upload', 'public');
+        }
+         $recipes = Recipe::findOrFail($id);
+        
+         $recipes->title = $request->title; 
+         $recipes->description = $request->description;
+         $recipes->ingredients = $request->ingredients;
+         $recipes->steps = $request->steps;
+         $recipes->image = $path;
+         $recipes->category = $request->category;
+
+         $recipes->save();
+
+         return redirect()->route('recipes.index')->with('success', 'Recipe updated successfully');
    }
-
-
-
-
+}

@@ -20,8 +20,12 @@
                     <p class="text-gray-600 text-sm mb-4">
                         {{ Str::limit($recipe->description, 120) }}
                     </p>
+                    <a href="{{ route('recipes.edit', $recipe->id) }}"
+                       class="inline-block text-sm font-medium text-rose-500 hover:text-rose-600">
+                        Modifier
+                    </a>
 
-                    <a href=""
+                    <a href="{{ route('recipes.details', $recipe->id) }}"
                        class="inline-block text-sm font-medium text-rose-500 hover:text-rose-600">
                         Read more →
                     </a>
