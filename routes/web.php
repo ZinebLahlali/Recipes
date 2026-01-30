@@ -31,4 +31,6 @@ Route::get('/recipes/{id}/edit', [RecipeController::class, 'edit'])->name('recip
 Route::put('/recipes/{id}', [RecipeController::class, 'update']);
 Route::delete('recipes/{recipe}',[RecipeController::class, 'destroy'])->name('recipes.destroy');
 
+Route::get('/home', [RecipeController::class, 'home'])->name('recipes.home');
+
 

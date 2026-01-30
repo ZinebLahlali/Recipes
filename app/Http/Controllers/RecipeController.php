@@ -95,5 +95,15 @@ class RecipeController extends Controller
         }
 
 
+    public function home()
+    {
+        $stats = [
+            'recipes' => Recipe::count(),
+        ];
+
+        return view('recipes.home', compact('stats'));
+    }    
+
+
 
 }

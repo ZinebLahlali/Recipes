@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layout.app')
 
 @section('content')
 
@@ -8,6 +8,7 @@
         <h1 class="text-4xl font-bold text-gray-800 mb-4">
             Bienvenue sur RecipeHub 🍽️
         </h1>
+        <img src="" alt="">
         <p class="text-gray-600 max-w-2xl mx-auto">
             RecipeHub est une plateforme dédiée aux passionnés de cuisine.
             Découvrez, partagez et enregistrez vos meilleures recettes en toute simplicité.
@@ -39,29 +40,26 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 text-center">
             
             <div class="bg-white p-6 rounded-xl shadow">
-                <p class="text-4xl font-bold text-orange-500">
-                    {{ $stats['recipes'] }}
-                </p>
+                <h2 class="text-4xl font-bold text-orange-500">
+                    {{$stats['recipes'] ?? 0}}
+               </h2>
                 <p class="text-gray-600 mt-2">Recettes</p>
             </div>
 
             <div class="bg-white p-6 rounded-xl shadow">
                 <p class="text-4xl font-bold text-orange-500">
-                    {{ $stats['users'] }}
                 </p>
                 <p class="text-gray-600 mt-2">Utilisateurs</p>
             </div>
 
             <div class="bg-white p-6 rounded-xl shadow">
                 <p class="text-4xl font-bold text-orange-500">
-                    {{ $stats['categories'] }}
                 </p>
                 <p class="text-gray-600 mt-2">Catégories</p>
             </div>
 
             <div class="bg-white p-6 rounded-xl shadow">
                 <p class="text-4xl font-bold text-orange-500">
-                    {{ $stats['likes'] }}
                 </p>
                 <p class="text-gray-600 mt-2">Likes</p>
             </div>
