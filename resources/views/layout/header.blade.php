@@ -8,7 +8,7 @@
 
         <!-- Navigation -->
         <nav class="hidden md:flex space-x-6 font-medium">
-            <a href="{{ url('/') }}" class="hover:text-rose-200 transition">Accueil</a>
+            <a href="/accueil" class="hover:text-rose-200 transition">Accueil</a>
             <a href="{{ url('/index') }}" class="hover:text-rose-200 transition">Recettes</a>
             <a href="{{ url('/categories') }}" class="hover:text-rose-200 transition">Catégories</a>
             <a href="{{ url('/recipes/create') }}" class="hover:text-rose-200 transition">Ajouter Recipe</a>

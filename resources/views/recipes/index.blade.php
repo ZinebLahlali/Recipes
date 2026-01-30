@@ -20,15 +20,30 @@
                     <p class="text-gray-600 text-sm mb-4">
                         {{ Str::limit($recipe->description, 120) }}
                     </p>
-                    <a href="{{ route('recipes.edit', $recipe->id) }}"
-                       class="inline-block text-sm font-medium text-rose-500 hover:text-rose-600">
-                        Modifier
-                    </a>
-
+        
                     <a href="{{ route('recipes.details', $recipe->id) }}"
                        class="inline-block text-sm font-medium text-rose-500 hover:text-rose-600">
                         Read more →
                     </a>
+                       <div>
+                             <a href="{{ route('recipes.edit', $recipe->id) }}"
+                       class="inline-block text-sm font-medium text-rose-500 hover:text-rose-600">
+                        Modifier
+                    </a>
+                       </div>
+                       <form method="POST" action="{{route('recipes.destroy', $recipe->id)}}">
+                            @csrf
+                            @method('DELETE')
+                            <div>
+                              <button type="submit"
+                               class="inline-block text-sm font-medium text-rose-500 hover:text-rose-600">
+                                   Supprimer
+                              </button>
+                             </div>
+                       </form>
+                       
+                    
+
                 </div>
             </div>
         @empty

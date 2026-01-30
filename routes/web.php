@@ -15,7 +15,7 @@ Route::get('/', function () {
 
 
 Route::get('/accueil', function () {
-    echo "Ma plateforme de recettes";
+    return view('home');
 });
 
 
@@ -29,5 +29,6 @@ Route::post('/recipes/create',[RecipeController::class, 'store'])->name('recipes
 
 Route::get('/recipes/{id}/edit', [RecipeController::class, 'edit'])->name('recipes.edit');
 Route::put('/recipes/{id}', [RecipeController::class, 'update']);
+Route::delete('recipes/{recipe}',[RecipeController::class, 'destroy'])->name('recipes.destroy');
 
 

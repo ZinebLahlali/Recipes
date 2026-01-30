@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Recipe;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class RecipeController extends Controller
 {
@@ -78,4 +79,21 @@ class RecipeController extends Controller
 
          return redirect()->route('recipes.index')->with('success', 'Recipe updated successfully');
    }
+    
+    
+        public function destroy(Recipe $recipe)
+        {
+            if ($recipe->image) {
+                Storage::disk('public')->delete($recipe->image);
+            }
+
+
+            $recipe->delete();
+
+            return redirect()->route('recipes.index')
+                            ->with('success', 'Recette supprimée avec succès');
+        }
+
+
+
 }
