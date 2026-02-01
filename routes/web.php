@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use app\Http\Controllers\HomeController;
 use App\Http\Controllers\RecipeController;
+use App\Http\Controllers\UserController;
 use App\Models\Recipe;
 
 Route::get('/', function () {
@@ -32,5 +33,9 @@ Route::put('/recipes/{id}', [RecipeController::class, 'update']);
 Route::delete('recipes/{recipe}',[RecipeController::class, 'destroy'])->name('recipes.destroy');
 
 Route::get('/home', [RecipeController::class, 'home'])->name('recipes.home');
+Route::get('/register', [UserController::class, 'showRegisterForm']);
+Route::post('/register', [UserController::class, 'register'])->name('register');
 
+Route::get('/login', [UserController::class, 'showLoginForm']);
+Route::post('/login', [UserController::class, 'login'])->name('login');
 
